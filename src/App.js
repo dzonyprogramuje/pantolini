@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+import {signIn} from './redux/actions'
+import {LogIn} from './components/LogIn'
+import {Dashboard} from './components/Dashboard'
 
-function App() {
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
+import PrivateRoute from './components/PrivateRoute';
+
+export default function App() {
+  const isLogged = useSelector(state => state.isLogged)
+  const dispatch = useDispatch()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+    {
+        isLogged ? <Dashboard /> : <LogIn />
+    }  
 
-export default App;
+      {/* <Router>
+        <Switch>
+          <PrivateRoute
+                  exact
+                  path="/"
+                  component={Dashboard}
+          />
+        </Switch>
+      </Router> */}
+    </>
+  )
+}
