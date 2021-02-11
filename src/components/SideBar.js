@@ -10,8 +10,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import HomeIcon from '@material-ui/icons/Home';
+import TelegramIcon from '@material-ui/icons/Telegram';
 
-import { MdAccountCircle } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 import {useSelector} from 'react-redux'
 import { connect } from 'react-redux';
@@ -23,34 +25,33 @@ const useStyles = makeStyles({
   },
 });
 
-function Menu({isOpen, handleSideBar}) {
+function SideBar({isOpen, handleSideBar}) {
   const classes = useStyles();
-  // const [state, setState] = React.useState(false);
-
-  // const isOpen = useSelector(state => state.isOpen)
-  // const dispatch = useDispatch()
-
-  // const toggleDrawer = (open) => (event) => {
-  //   if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-  //     return;
-  //   }
-
-  //   setState(open);
-  // };
 
   const list = () => (
     <div
       className={classes.list}
-      // onClick={toggleDrawer(false)}
-      // onKeyDown={toggleDrawer(false)}
+      onClick={handleSideBar}
+      onKeyDown={handleSideBar}
     >
-      <Divider />
+      
       <List>
-          <ListItem button key="lll">
-            <ListItemIcon><InboxIcon /></ListItemIcon>
-            <ListItemText primary="lol" />
+          <ListItem button key="dashboard" to='/dashboard' component={Link} >              
+            <ListItemIcon>
+              <HomeIcon />      
+            </ListItemIcon>
+            <ListItemText primary="Wall" />           
           </ListItem>
+          <Divider />
+          <ListItem button key="my-posts" to='/my-posts' component={Link} >
+            <ListItemIcon><TelegramIcon /></ListItemIcon>
+            <ListItemText primary="My posts" />
+          </ListItem>
+        
       </List>
+
+      
+
     </div>
   );
 
@@ -77,4 +78,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default connect(mapStateToProps, mapDispatchToProps)(SideBar);

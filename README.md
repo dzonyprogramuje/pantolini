@@ -1,10 +1,8 @@
 # Pantolini - Social Media App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Goal
 
-Learning Redux & Redux and connect both of them together.
+Learning Redux & Redux and connect both of them together as a smart social media web application, in this case without backend.
 
 You can run my project in the development mode:
 
@@ -21,4 +19,4 @@ You can run my project in the development mode:
 
 ### Live Demo
 
-    Live Demo will be here: [Check](https://dzonyprogramuje.com)
+Live Demo will be here: [Check](https://dzonyprogramuje.com)

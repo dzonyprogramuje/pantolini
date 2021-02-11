@@ -5,20 +5,21 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+
+import MenuIcon from '@material-ui/icons/Menu';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Divider from '@material-ui/core/Divider';
 
+import AccountCircle from '@material-ui/icons/AccountCircle';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import PeopleIcon from '@material-ui/icons/People';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
+import { Link } from "react-router-dom";
+
 import {toggleSideBar} from '../redux/actions'
-import {useDispatch} from 'react-redux'
 import {signIn} from '../redux/actions'
 
 import { connect } from 'react-redux';
@@ -35,9 +36,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Navbar({handleSideBar}) {
-    const classes = useStyles();
-    const dispatch = useDispatch()
+function Navbar({handleSideBar, logOut}) {
+  const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
@@ -49,10 +49,6 @@ function Navbar({handleSideBar}) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  const logOut = () => {
-    dispatch(signIn)
-  }
 
   return (
     <div className={classes.root}>
@@ -82,13 +78,13 @@ function Navbar({handleSideBar}) {
         open={isMenuOpen}
         onClose={handleClose}
         >
-            <MenuItem onClick="">
+            <MenuItem  to='/my-profile' component={Link} >
                 <ListItemIcon>
                     <AccountBoxIcon fontSize="medium" />
                 </ListItemIcon>
                 Profile
             </MenuItem>
-            <MenuItem onClick="">
+            <MenuItem to='/my-friends' component={Link}>
                 <ListItemIcon>
                     <PeopleIcon fontSize="medium" />
                 </ListItemIcon>
@@ -109,7 +105,8 @@ function Navbar({handleSideBar}) {
 
 const mapDispatchToProps = dispatch => {
   return{
-    handleSideBar: ()=>dispatch(toggleSideBar())
+    handleSideBar: ()=>dispatch(toggleSideBar()),
+    logOut: ()=>dispatch(signIn())
   }
 }
 

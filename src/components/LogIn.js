@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,16 +16,15 @@ import Container from '@material-ui/core/Container';
 import { FormControl } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-import {useSelector, useDispatch} from 'react-redux'
 import {signIn} from '../redux/actions'
-
+import { connect } from 'react-redux';
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Pantolini by Dzonyprogramuje
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -52,11 +52,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export function LogIn() {
+function LogIn({handleLogin}) {
   const classes = useStyles();
-
-  const isLogged = useSelector(state => state.isLogged)
-  const dispatch = useDispatch()
 
   const [isLoading, isLoadingHandler] = useState(false)
 
@@ -107,7 +104,7 @@ export function LogIn() {
             onClick={()=>{
               isLoadingHandler(true)
               setTimeout(()=>{                 
-                dispatch(signIn())
+                handleLogin()
               }, 1000)                      
               }
             }
@@ -134,3 +131,11 @@ export function LogIn() {
     </Container>
   );
 }
+
+const mapDispatchToProps = dispatch => {
+  return{
+    handleLogin: ()=>dispatch(signIn())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(LogIn)

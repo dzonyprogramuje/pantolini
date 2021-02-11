@@ -1,22 +1,28 @@
 import React from 'react'
-import {useSelector, useDispatch} from 'react-redux'
+
 import {signIn} from './redux/actions'
-import {LogIn} from './components/LogIn'
+import LogIn from './components/LogIn'
 import {Dashboard} from './components/Dashboard'
 
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 import PrivateRoute from './components/PrivateRoute';
 
-export default function App() {
-  const isLogged = useSelector(state => state.isLogged)
-  const dispatch = useDispatch()
+import { connect } from 'react-redux';
+
+function App({isLogged}) {
 
   return (
     <>
+    
+  <Router>
     {
-        isLogged ? <Dashboard /> : <LogIn />
-    }  
-
+        isLogged ? <Redirect to='/dashboard' /> : <Redirect to='/login' />
+    }
+    <Switch>        
+      <Route exact path="/dashboard"><Dashboard /></Route>
+      <Route exact path="/login"><LogIn /></Route>
+    </Switch>
+  </Router>
       {/* <Router>
         <Switch>
           <PrivateRoute
@@ -29,3 +35,12 @@ export default function App() {
     </>
   )
 }
+
+
+const mapStateToProps = function(state) {
+    return {
+      isLogged: state.isLogged,
+    }
+}
+
+export default connect(mapStateToProps)(App);
