@@ -86,14 +86,14 @@ export default function Wall() {
                                                     size="small"
                                                     className={classes.button}
                                                     startIcon={<ThumbDownIcon />}
-                                                >hate It</Button> 
+                                                >hate It ({post.hated})</Button> 
                                                 <Button
                                                     variant="contained"
                                                     color="primary"
                                                     size="small"
                                                     className={classes.button}
                                                     startIcon={<ThumbUpAltIcon />}
-                                                >Love It</Button>                                          
+                                                >Love It ({post.liked})</Button>                                          
                                             </Box>                                             
                                         </Grid> 
                                         <Box my={2} flexGrow={1}>

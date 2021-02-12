@@ -10,6 +10,8 @@ export const users =
                 {
                     date: '24.09.2020',
                     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. 😂 Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
+                    hated: 1,
+                    liked: 13,
                     comments: [
                         {
                             author: 'Arnold Riley',
@@ -26,6 +28,8 @@ export const users =
                 {
                     date: '11.10.2020',
                     description: 'Not to be confused with 😭 Loudly Crying Face or 🤣 Rolling on the Floor Laughing, which expresses more intense laughter.',
+                    hated: 0,
+                    liked: 23,
                     comments: [
                         {
                             author: 'Arnold Riley',
@@ -46,6 +50,8 @@ export const users =
                 {
                     date: '16.09.2020',
                     description: 'It is a long established fact that a reader will be 🍊 istracted 🍊 by the readable content of a page when looking at its layout. ',
+                    hated: 4,
+                    liked: 7,
                     comments: [
                     {
                         author: 'Herminia Watson',
@@ -67,6 +73,8 @@ export const users =
                 {
                     date: '03.11.2020',
                     description: 'There are many variations of passages of Lorem Ipsum available, h ⭐ Star, 🌟 Glowing Star, and ✨ Sparkles, but the majority have suffered alteration in some form.',
+                    hated: 0,
+                    liked: 15,
                     comments: [
                     {
                         author: 'Herminia Watson',
