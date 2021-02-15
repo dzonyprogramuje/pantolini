@@ -1,57 +1,95 @@
-import React, {useState} from 'react'
+import React from 'react'
+import { connect } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
 
-export default function Friends() {
-    const [users, setUsers] = useState([
-        {
-            firstName: 'Herminia',
-            lastName: 'Watson',
-            email: 'herminia.watson@example.com',
-            age: 37,
-            image: '',
-            posts: [
-                {
-                    date: '24.09.2020',
-                    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. 😂 Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
-                },
-                {
-                    date: '11.10.2020',
-                    description: 'Not to be confused with 😭 Loudly Crying Face or 🤣 Rolling on the Floor Laughing, which expresses more intense laughter.',
-                }
-            ]
-        },
-        {
-            firstName: 'Arnold',
-            lastName: 'Riley',
-            email: 'arnold.riley@example.com',
-            age: 48,
-            image: '',
-            posts: [
-                {
-                    date: '16.09.2020',
-                    description: 'It is a long established fact that a reader will be 🍊 istracted 🍊 by the readable content of a page when looking at its layout. ',
-                },
-                {
-                    date: '03.11.2020',
-                    description: 'There are many variations of passages of Lorem Ipsum available, h ⭐ Star, 🌟 Glowing Star, and ✨ Sparkles, but the majority have suffered alteration in some form.',
-                }
-            ]
-        },
-    ])
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import Avatar from '@material-ui/core/Avatar';
 
-    // axios.get('https://randomuser.me/api/')
-    // .then(function (response) {
-    // // handle success
-    // console.log(response.data.results);
-    // })
-    // .catch(function (error) {
-    // // handle error
-    // console.log(error);
-    // })
+const useStyles = makeStyles((theme) => ({
+    small: {
+    width: theme.spacing(14),
+    height: theme.spacing(14),
+  },
+    large: {
+    width: theme.spacing(20),
+    height: theme.spacing(20),
+    },
+}));
+
+
+function Friends({friends}) {
+    const classes = useStyles();
+
     return (
         <div>
-            
+            <Grid container direction="col" justify="space-between" alignItems="center" spacing={2}>                               
+                <Grid item>
+                <img src={"../img/1.jpg"} className={classes.small} />
+                <Typography variant="body1" gutterBottom>
+                    Lorem Ipsum
+                </Typography>  
+                </Grid>
+                <Grid item>
+                <img src={"../img/2.jpg"} className={classes.small} />
+                <Typography variant="body1" gutterBottom>
+                    Lorem Ipsum
+                </Typography>
+                </Grid>
+                <Grid item>
+                <img src={"../img/3.jpg"} className={classes.small} />
+                <Typography variant="body1" gutterBottom>
+                    Lorem Ipsum
+                </Typography>
+                </Grid>
+                <Grid item>
+                <img src={"../img/4.jpg"} className={classes.small} />
+                <Typography variant="body1" gutterBottom>
+                    Lorem Ipsum
+                </Typography>
+                </Grid>
+                <Grid item>
+                <img src={"../img/5.jpg"} className={classes.small} />
+                <Typography variant="body1" gutterBottom>
+                    Lorem Ipsum
+                </Typography>
+                </Grid>
+                 <Grid item>
+                <img src={"../img/6.jpg"} className={classes.small} />
+                <Typography variant="body1" gutterBottom>
+                    Lorem Ipsum
+                </Typography>
+                </Grid>
+                <Grid item>
+                <img src={"../img/7.jpg"} className={classes.small} />
+                <Typography variant="body1" gutterBottom>
+                    Lorem Ipsum
+                </Typography>
+                </Grid>
+                <Grid item>
+                <img src={"../img/8.jpg"} className={classes.small} />
+                <Typography variant="body1" gutterBottom>
+                    Lorem Ipsum
+                </Typography>
+                </Grid>
+                 <Grid item>
+                <img src={"../img/9.jpg"} className={classes.small} />
+                <Typography variant="body1" gutterBottom>
+                    Lorem Ipsum
+                </Typography>
+                </Grid>
+            </Grid>                            
         </div>
     )
 }
 
+const mapStateToProps = function(state) {
+    return {
+      friends: state.friends,
+    }
+}
 
+export default connect(mapStateToProps)(Friends);

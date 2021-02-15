@@ -8,6 +8,7 @@ export const users =
             image: '1.jpg',
             posts: [
                 {
+                    id: 0,
                     date: '24.09.2020',
                     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. 😂 Lorem Ipsum has been the industrys standard dummy text ever since the 1500s',
                     hated: 1,
@@ -26,6 +27,7 @@ export const users =
                     ],
                 },
                 {
+                    id: 1,
                     date: '11.10.2020',
                     description: 'Not to be confused with 😭 Loudly Crying Face or 🤣 Rolling on the Floor Laughing, which expresses more intense laughter.',
                     hated: 0,
@@ -48,6 +50,7 @@ export const users =
             image: '2.jpg',
             posts: [
                 {
+                    id: 2,
                     date: '16.09.2020',
                     description: 'It is a long established fact that a reader will be 🍊 istracted 🍊 by the readable content of a page when looking at its layout. ',
                     hated: 4,
@@ -71,6 +74,7 @@ export const users =
                 ],
                 },
                 {
+                    id: 3,
                     date: '03.11.2020',
                     description: 'There are many variations of passages of Lorem Ipsum available, h ⭐ Star, 🌟 Glowing Star, and ✨ Sparkles, but the majority have suffered alteration in some form.',
                     hated: 0,

@@ -56,10 +56,9 @@ export default function Wall() {
         users.map(user =>{
             return(                
                 user.posts.map((post,index) => {  
-                    
                     return(
                         <Grid item xs={12}>
-                            <Paper elevation={3} >
+                            <Paper>
                                 <Box p={4}>
                                     <Grid item xs={12}>
                                         <Box display="flex" alignItems="center">
@@ -102,7 +101,7 @@ export default function Wall() {
                                         <Box flexGrow={1}>                                            
                                             <Grid container justify='space-between' direction='row' alignItems="stretch" spacing={3}>
                                                 <Grid item xs={12}>
-                                                    <TextField id="standard-basic" variant="outlined" label="Comment this post hiere" fullWidth className={classes.input}/>                                                    
+                                                    <TextField id="standard-basic" variant="outlined" label="Comment this post here" fullWidth className={classes.input}/>                                                    
                                                 </Grid>
                                             </Grid>                                
                                         </Box>
