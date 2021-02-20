@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  menu: {
+    padding: theme.spacing(2, 10, 2, 2),
+  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -78,20 +81,20 @@ function Navbar({handleSideBar, logOut}) {
         open={isMenuOpen}
         onClose={handleClose}
         >
-            <MenuItem  to='/my-profile' component={Link} >
+            <MenuItem to='/my-profile' component={Link} className={classes.menu}>
                 <ListItemIcon>
                     <AccountBoxIcon fontSize="medium" />
                 </ListItemIcon>
                 Profile
             </MenuItem>
-            <MenuItem to='/my-friends' component={Link}>
+            <MenuItem to='/my-friends' component={Link} className={classes.menu}>
                 <ListItemIcon>
                     <PeopleIcon fontSize="medium" />
                 </ListItemIcon>
                 Friends
             </MenuItem>    
             <Divider />     
-            <MenuItem onClick={logOut}>
+            <MenuItem onClick={logOut} className={classes.menu}>
                 <ListItemIcon>
                     <ExitToAppIcon fontSize="medium" />
                 </ListItemIcon>                

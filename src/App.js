@@ -1,14 +1,14 @@
 import React from 'react'
 
-import {signIn} from './redux/actions'
 import LogIn from './components/LogIn'
-import {Dashboard} from './components/Dashboard'
+import Dashboard from './components/Dashboard'
 import Profile from './components/Profile'
+
+import {connect} from 'react-redux';
+import {signIn} from './redux/actions'
 
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 import PrivateRoute from './components/PrivateRoute';
-
-import { connect } from 'react-redux';
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
@@ -31,32 +31,20 @@ function App({isLogged}) {
 });
 
   return (
-    <>
     <ThemeProvider theme={theme}>
-  <Router>
-    {
-        isLogged ? <Redirect to='/dashboard' /> : <Redirect to='/login' />
-    }
-    <Switch>        
-      <Route exact path="/dashboard"><Dashboard /></Route>
-      <Route exact path="/login"><LogIn /></Route>
-      <Route exact path="/my-profile"><Profile /></Route>
-    </Switch>
-  </Router>
-      {/* <Router>
-        <Switch>
-          <PrivateRoute
-                  exact
-                  path="/"
-                  component={Dashboard}
-          />
+      <Router>
+        {
+          isLogged ? <Redirect to='/dashboard' /> : <Redirect to='/login' />
+        }
+        <Switch>        
+          <Route exact path="/dashboard"><Dashboard /></Route>
+          <Route exact path="/login"><LogIn /></Route>
+          <Route exact path="/my-profile"><Profile /></Route>
         </Switch>
-      </Router> */}
-      </ThemeProvider>
-    </>
+      </Router>
+    </ThemeProvider>
   )
 }
-
 
 const mapStateToProps = function(state) {
     return {

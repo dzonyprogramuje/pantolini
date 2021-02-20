@@ -5,7 +5,7 @@ import SideBar from './SideBar'
 // import Friends from './Friends'
 import Wall from './Wall'
 
-export function Dashboard() {
+export default function Dashboard() {
 
     return (
         <div>

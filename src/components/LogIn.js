@@ -17,7 +17,7 @@ import { FormControl } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import {signIn} from '../redux/actions'
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 function Copyright() {
   return (
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2, 0),
-    height: "50px"
+    height: theme.spacing(6),
   },
 }));
 
