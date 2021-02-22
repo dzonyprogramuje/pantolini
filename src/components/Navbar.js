@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   menu: {
-    padding: theme.spacing(2, 10, 2, 2),
+    padding: theme.spacing(1.5, 12, 1.5, 2),
   },
   menuButton: {
     marginRight: theme.spacing(2),

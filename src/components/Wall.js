@@ -79,13 +79,13 @@ export default function Wall() {
                                         <Grid container my={3} justify='space-between' direction='col'>                                                    
                                             <Box><Button size="small" onClick={()=>handleExpand(index)}>Comments ({post.comments.length})</Button></Box>  
                                             <Box>
-                                                <Button
-                                                    variant="contained"
-                                                    color="secondary"
-                                                    size="small"
-                                                    className={classes.button}
-                                                    startIcon={<ThumbDownIcon />}
-                                                >hate It ({post.hated})</Button> 
+                                            <Button
+                                                variant="contained"
+                                                color="secondary"
+                                                size="small"
+                                                className={classes.button}
+                                                startIcon={<ThumbDownIcon />}
+                                            >hate It ({post.hated})</Button> 
                                                 <Button
                                                     variant="contained"
                                                     color="primary"

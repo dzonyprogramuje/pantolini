@@ -1,8 +1,8 @@
 const date = {
   firstName: "Dzony",
   lastName: "Prograjmuje",
-  age: 28,
-  city: 'Dresden',
+  age: 66,
+  city: ' City',
   postsQuantity: 11,
   joined: "14.02.2021",
   avatar: "avatar.jpg",
