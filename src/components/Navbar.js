@@ -5,13 +5,14 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
+import Divider from '@material-ui/core/Divider';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
 import MenuIcon from '@material-ui/icons/Menu';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import Divider from '@material-ui/core/Divider';
 
+import HomeIcon from '@material-ui/icons/Home';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import PeopleIcon from '@material-ui/icons/People';
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   menu: {
-    padding: theme.spacing(1.5, 12, 1.5, 2),
+    padding: theme.spacing(1.5, 12, 1.5, 1.5),
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Navbar({handleSideBar, logOut}) {
+function Navbar({logOut}) {
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -57,16 +58,10 @@ function Navbar({handleSideBar, logOut}) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={()=>handleSideBar()} >
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" className={classes.title}>
             Pantolini Social Media
           </Typography>
           <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
                 onClick={handleMenu}
                 color="inherit"
               >
@@ -81,22 +76,28 @@ function Navbar({handleSideBar, logOut}) {
         open={isMenuOpen}
         onClose={handleClose}
         >
+          <MenuItem to='/dashboard' component={Link} className={classes.menu}>
+                <ListItemIcon>
+                    <HomeIcon />
+                </ListItemIcon>
+                Wall
+            </MenuItem>
             <MenuItem to='/my-profile' component={Link} className={classes.menu}>
                 <ListItemIcon>
-                    <AccountBoxIcon fontSize="medium" />
+                    <AccountBoxIcon />
                 </ListItemIcon>
                 Profile
             </MenuItem>
             <MenuItem to='/my-friends' component={Link} className={classes.menu}>
                 <ListItemIcon>
-                    <PeopleIcon fontSize="medium" />
+                    <PeopleIcon />
                 </ListItemIcon>
                 Friends
             </MenuItem>    
-            <Divider />     
+            <Divider />
             <MenuItem onClick={logOut} className={classes.menu}>
                 <ListItemIcon>
-                    <ExitToAppIcon fontSize="medium" />
+                    <ExitToAppIcon />
                 </ListItemIcon>                
                 Logout
             </MenuItem>    
@@ -108,7 +109,6 @@ function Navbar({handleSideBar, logOut}) {
 
 const mapDispatchToProps = dispatch => {
   return{
-    handleSideBar: ()=>dispatch(toggleSideBar()),
     logOut: ()=>dispatch(signIn())
   }
 }

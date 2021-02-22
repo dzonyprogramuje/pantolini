@@ -23,32 +23,32 @@ function Pictures() {
 
     return (
         <div>
-            <Grid container direction="col" justify="center" alignItems="center" spacing={5}>                               
-                <Grid item xs={4}>
+            <Grid container direction="col" justify="center" alignItems="center" spacing={2}>                               
+                <Grid item>
                 <FaImage className={classes.thumbnail} />
                 </Grid>
-                <Grid item xs={4} >
+                <Grid item >
                 <FaImage className={classes.thumbnail}/>
                 </Grid>
-                <Grid item xs={4} >
+                <Grid item >
                 <FaImage className={classes.thumbnail}/>
                 </Grid>
-                <Grid item xs={4} >
+                <Grid item >
                 <FaImage className={classes.thumbnail}/>
                 </Grid>
-                <Grid item xs={4} >
+                <Grid item >
                 <FaImage className={classes.thumbnail}/>
                 </Grid>
-                 <Grid item xs={4} >
+                 <Grid item >
                 <FaImage className={classes.thumbnail}/>
                 </Grid>
-                <Grid item xs={4} >
+                <Grid item >
                 <FaImage className={classes.thumbnail}/>
                 </Grid>
-                <Grid item xs={4} >
+                <Grid item >
                 <FaImage className={classes.thumbnail}/>
                 </Grid>
-                <Grid item xs={4} >
+                <Grid item >
                 <FaImage className={classes.thumbnail}/>
                 </Grid>
             </Grid>                            

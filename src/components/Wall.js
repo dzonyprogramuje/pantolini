@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import { connect } from 'react-redux';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -30,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Wall() {
+function Wall({profile}) {
     const classes = useStyles();
     const [expand, setExpand] = useState('')
 
@@ -43,7 +45,7 @@ export default function Wall() {
   }    
 
   return (
-      
+    
     <Container maxWidth="md">
         <div className={classes.root}>
         <Grid container spacing={3}>            
@@ -52,20 +54,20 @@ export default function Wall() {
                     <TextField id="standard-basic" label="What are you doing today? 😃" fullWidth />
                 </Box>
             </Grid>
+            
         {
-        users.map(user =>{
-            return(                
-                user.posts.map((post,index) => {  
+             
+                profile.posts.map((post,index) => {  
                     return(
                         <Grid item xs={12}>
                             <Paper>
                                 <Box p={4}>
                                     <Grid item xs={12}>
                                         <Box display="flex" alignItems="center">
-                                            <Avatar alt="Remy Sharp" src={`../img/${user.image}`} />
+                                            <Avatar alt="Remy Sharp" src="{{ asset('./img/avatar.jpg') }}" />
                                             <Box mx={2}>
-                                                <Typography variant="body1" gutterBottom>{user.firstName} {user.lastName}</Typography>
-                                                <Typography variant="body2" gutterBottom>{post.date}</Typography>
+                                                <Typography variant="body1" gutterBottom>{profile.firstName} {profile.lastName}</Typography>
+                                                <Typography variant="body2" gutterBottom>xxx</Typography>
                                             </Box>
                                         </Box>
                                     </Grid>
@@ -148,10 +150,7 @@ export default function Wall() {
                         </Grid>
                     )                            
                 })
-            )
-            
-        }
-            )}
+            }
                 
              
         </Grid>
@@ -160,3 +159,11 @@ export default function Wall() {
   );
   
 }
+
+const mapStateToProps = function(state) {
+    return {
+      profile: state.profile,
+    }
+}
+
+export default connect(mapStateToProps)(Wall);

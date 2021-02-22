@@ -52,4 +52,4 @@ const mapStateToProps = function(state) {
     }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App)
