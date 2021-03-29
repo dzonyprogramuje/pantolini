@@ -64,10 +64,10 @@ function Wall({profile}) {
                                 <Box p={4}>
                                     <Grid item xs={12}>
                                         <Box display="flex" alignItems="center">
-                                            <Avatar alt="Remy Sharp" src="{{ asset('./img/avatar.jpg') }}" />
+                                            <Avatar alt="Remy Sharp" src={`../img/${profile.avatar}`} />
                                             <Box mx={2}>
                                                 <Typography variant="body1" gutterBottom>{profile.firstName} {profile.lastName}</Typography>
-                                                <Typography variant="body2" gutterBottom>xxx</Typography>
+                                                <Typography variant="body2" gutterBottom>{post.date}</Typography>
                                             </Box>
                                         </Box>
                                     </Grid>
@@ -79,15 +79,17 @@ function Wall({profile}) {
                                         </Box>
                                                
                                         <Grid container my={3} justify='space-between' direction='col'>                                                    
-                                            <Box><Button size="small" onClick={()=>handleExpand(index)}>Comments ({post.comments.length})</Button></Box>  
                                             <Box>
-                                            <Button
-                                                variant="contained"
-                                                color="secondary"
-                                                size="small"
-                                                className={classes.button}
-                                                startIcon={<ThumbDownIcon />}
-                                            >hate It ({post.hated})</Button> 
+                                                <Button size="small" onClick={()=>handleExpand(index)}>Comments ({post.comments.length})</Button>
+                                            </Box>  
+                                            <Box>
+                                                <Button
+                                                    variant="contained"
+                                                    color="secondary"
+                                                    size="small"
+                                                    className={classes.button}
+                                                    startIcon={<ThumbDownIcon />}
+                                                >hate It ({post.hated})</Button> 
                                                 <Button
                                                     variant="contained"
                                                     color="primary"

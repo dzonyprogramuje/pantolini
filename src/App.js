@@ -3,6 +3,7 @@ import React from 'react'
 import LogIn from './components/LogIn'
 import Dashboard from './components/Dashboard'
 import Profile from './components/Profile'
+import AllFriends from './components/AllFriends'
 
 import {connect} from 'react-redux';
 import {signIn} from './redux/actions'
@@ -12,7 +13,7 @@ import PrivateRoute from './components/PrivateRoute';
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
-function App({isLogged}) {
+function App({isLogged, friends}) {
   const theme = createMuiTheme({
   palette: {
     primary: {
@@ -40,6 +41,7 @@ function App({isLogged}) {
           <Route exact path="/dashboard"><Dashboard /></Route>
           <Route exact path="/login"><LogIn /></Route>
           <Route exact path="/my-profile"><Profile /></Route>
+          <Route exact path="/my-friends"><AllFriends friends={friends} /></Route>
         </Switch>
       </Router>
     </ThemeProvider>
@@ -49,6 +51,7 @@ function App({isLogged}) {
 const mapStateToProps = function(state) {
     return {
       isLogged: state.isLogged,
+      friends: state.friends,
     }
 }
 

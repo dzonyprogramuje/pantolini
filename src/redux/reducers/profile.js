@@ -3,7 +3,7 @@ const date = {
   lastName: "Prograjmuje",
   email: 'herminia.watson@example.com',
   age: 66,
-  city: ' City',
+  city: 'Warsaw',
   postsQuantity: 11,
   joined: "14.02.2021",
   avatar: "avatar.jpg",

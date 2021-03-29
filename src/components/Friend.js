@@ -21,7 +21,7 @@ export default function Friend({friends}) {
             <div>
             <Grid item>
                 <img src={`../img/${friend.image}`} className={classes.small} alt={`${friend.name} thumnail`} />
-                <Typography variant="body1" gutterBottom>
+                <Typography variant="body2" gutterBottom>
                     {friend.name}
                 </Typography>  
             </Grid>
