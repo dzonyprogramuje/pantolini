@@ -19,6 +19,22 @@ const date = [
     name: "Thomas Anders",
     image: "5.jpg",
   },
+  {
+    name: "Thomas Fog",
+    image: "6.jpg",
+  },
+  {
+    name: "Katherin Jurv",
+    image: "7.jpg",
+  },
+  {
+    name: "Andi Alls",
+    image: "8.jpg",
+  },
+  {
+    name: "Janusz Passat",
+    image: "9.jpg",
+  },
 ]
 
 export default function friends(state = date, action) {
